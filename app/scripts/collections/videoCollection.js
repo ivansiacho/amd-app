@@ -10,9 +10,8 @@ define([
 
 		url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&key=AIzaSyCrcdybDlXV1xg7kEkD0yrToGEshrrj5Kc',
 
-		parse: function(resp) {
-			console.log(resp.items);
-			return resp.items;
+		parse: function(response) {
+			return response.items;
 		}
 	});
 

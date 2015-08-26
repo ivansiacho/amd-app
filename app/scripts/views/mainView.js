@@ -1,4 +1,3 @@
-// Filename: app.js
 define([
 	'jquery',
 	'underscore',
@@ -7,8 +6,6 @@ define([
 ], function($, _, Backbone, Router) {
 	var mainView = Backbone.View.extend({
 		el: $('#app-container'),
-		query: '',
-		artistId: '',
 		events: {
 			'click .button-search' : 'search',
 			'click .view-artist' : 'viewArtist',
@@ -16,7 +13,6 @@ define([
 		},
 		initialize: function() {
 			inputSearch = this.$('#input-search');
-			// Pass in our Router module and call it's initialize function
 			this.clean();
 			Router.initialize();
 		},
@@ -31,21 +27,28 @@ define([
 		},
 		viewArtist: function(event) {
 			event.preventDefault();
+			var $target = $(event.target);
+			this.artistId = $target.data('id');
+			this.query = $target.data('name');
 			this.clean();
-			this.artistId = $(event.target).data('id');
-			this.query = $(event.target).data('name');
 			appRouter.navigate('albums/' + this.query + '/' + this.artistId, true);
 		},
 		viewAlbum: function(event) {
 			event.preventDefault();
-			this.artistId = $(event.target).data('id');
-			appRouter.navigate('detail/' + this.artistId, true);
+			var $profileName = $('.profile-name');
+			this.albumId = $(event.target).data('id');
+			this.artistId = $profileName.data('id');
+			this.query = $profileName.html();
+			this.clean();
+			appRouter.navigate('detail/' + this.artistId + '/' + this.query + '/' + this.albumId, true);
 		},
 		clean: function() {
 			this.$('#main-results').html('');
 			this.$('#album-list').html('');
 			this.$('#artist-videos').html('');
-			this.$('#album-list').html('');
+			this.$('#artist-profile').html('');
+			this.$('#album-comments').html('');
+			console.log('clean');
 		}
 	});
 
