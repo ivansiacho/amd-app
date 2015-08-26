@@ -10,7 +10,6 @@ define([
 
 		initialize: function (idArtist) {
 			this.idArtist = idArtist;
-			console.log(idArtist);
 		},
 		sync: function(method, model, options) {
 		    var params = _.extend({

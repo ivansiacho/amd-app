@@ -10,6 +10,7 @@ define([
 
 		initialize: function (query) {
 			this.queryArtist = query;
+			this.url = 'https://api.deezer.com/search/artist/?output=jsonp&q=' + this.queryArtist;
 		},
 
 		/*url: function () {
@@ -19,13 +20,21 @@ define([
 		}*/
 		sync: function(method, model, options) {
 		    var params = _.extend({
-		        url: 'https://api.deezer.com/search/artist/?output=jsonp&q=' + this.queryArtist,
+		        url: this.url,
 		    	type: 'GET',
 		    	dataType: 'jsonp'
 		    }, options);
 
 		    return $.ajax(params);
-		}
+		}/*,
+
+		byArtist: function (id) {
+	        filtered = this.filter(function (box) {
+	            return box.get('id') === id;
+	        });
+
+	        return new ArtistCollection(filtered);
+	    }*/
 	});
 
 	return ArtistCollection;
