@@ -1,6 +1,5 @@
 define([
     'jquery',
-    'underscore',
     'backbone',
     'collections/artistCollection',
     'collections/albumCollection',
@@ -12,7 +11,7 @@ define([
     'views/videoView',
     'views/detailView',
     'views/commentView'
-], function($, _, Backbone, ArtistCollection, AlbumCollection, VideoCollection, DetailModel, ArtistView, AlbumView, ProfileView, VideoView, DetailView, CommentView) {
+], function($, Backbone, ArtistCollection, AlbumCollection, VideoCollection, DetailModel, ArtistView, AlbumView, ProfileView, VideoView, DetailView, CommentView) {
     var AppRouter = Backbone.Router.extend({
 
         routes: {
@@ -36,6 +35,7 @@ define([
 
                 artistCollection.fetch({
                     url: 'https://api.deezer.com/artist/'+ query +'?output=jsonp',
+
                     success: function(model, response) {
                         profileView.render(response);
                     }
@@ -47,6 +47,7 @@ define([
                 });
                 videoCollection.fetch({
                     url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&key=AIzaSyCrcdybDlXV1xg7kEkD0yrToGEshrrj5Kc&q=' + artist,
+
                     success: function(model, response) {
                         videoView.render(response);
                     }
@@ -56,6 +57,7 @@ define([
 
                 artistCollection.fetch({
                     url: 'https://api.deezer.com/artist/'+ actionPath[0] +'?output=jsonp',
+
                     success: function(model, response) {
                         profileView.render(response);
                     }
@@ -63,6 +65,7 @@ define([
 
                 videoCollection.fetch({
                     url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&key=AIzaSyCrcdybDlXV1xg7kEkD0yrToGEshrrj5Kc&q=' + actionPath[1],
+
                     success: function(model, response) {
                         videoView.render(response);
                     }
@@ -70,8 +73,8 @@ define([
 
                 albumCollection.fetch({
                     url: 'http://api.deezer.com/album/'+ query +'/comments?output=jsonp',
+
                     success: function(model, response) {
-                        console.log(response);
                         commentView.render(response);
                     }
                 });

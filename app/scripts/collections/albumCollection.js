@@ -12,6 +12,7 @@ define([
 			this.idArtist = idArtist;
 			this.url = 'https://api.deezer.com/artist/'+ this.idArtist +'/albums?output=jsonp'
 		},
+
 		sync: function(method, model, options) {
 		    var params = _.extend({
 		        url: this.url,

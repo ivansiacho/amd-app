@@ -1,21 +1,23 @@
 define([
 	'jquery',
-	'underscore',
 	'backbone',
 	'router'
-], function($, _, Backbone, Router) {
+], function($, Backbone, Router) {
 	var mainView = Backbone.View.extend({
 		el: $('#app-container'),
+
 		events: {
 			'click .button-search' : 'search',
 			'click .view-artist' : 'viewArtist',
 			'click .view-album' : 'viewAlbum'
 		},
+
 		initialize: function() {
 			inputSearch = this.$('#input-search');
 			this.clean();
 			Router.initialize();
 		},
+
 		search: function(event) {
 			event.preventDefault();
 			this.query = inputSearch.val();
@@ -26,6 +28,7 @@ define([
 				appRouter.navigate('search/' + this.query, true);
 			}
 		},
+
 		viewArtist: function(event) {
 			event.preventDefault();
 			var $target = $(event.target);
@@ -36,6 +39,7 @@ define([
 			this.clean();
 			appRouter.navigate('albums/' + this.query + '/' + this.artistId, true);
 		},
+
 		viewAlbum: function(event) {
 			event.preventDefault();
 			var $profileName = this.$('.profile-name'),
@@ -50,6 +54,7 @@ define([
 			this.$el.css('background-image', 'url(' + this.bgUrl + ')');
 			appRouter.navigate('detail/' + this.artistId + '/' + this.query + '/' + this.albumId, true);
 		},
+
 		clean: function() {
 			this.$el.css('background-image', '');
 			this.$('#main-results').html('');
