@@ -22,39 +22,40 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
-        <div id="app-container" class="container">
-            <div class="header">
-                <img src="images/deezer-logo.png" width="150" alt="Deezer"/>
+        <div class="header">
+            <div class="container">
+                <img src="images/deezer-logo.png" width="180" alt="Deezer"/>
                 <h4 class="text-muted pull-right">App Challenge</h4>
             </div>
-
-            <div class="jumbotron">
-                <h1>Artists</h1>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="input-search" placeholder="Type your artist">
+        </div>
+        <div id="app-container" class="app-container">
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>Artists</h1>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="input-search" placeholder="Type your artist">
+                    </div>
+                    <button class="button-search btn btn-lg btn-primary">Search</button>
                 </div>
-                <button class="button-search btn btn-lg btn-primary">Search</button>
+
+                <div class="row main-container">
+                    <div id="main-results" class="col-md-12"></div>
+                    <div class="col-md-4">
+                        <div id="artist-profile"></div>
+                        <div id="artist-videos"></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="album-list"></div>
+                        <div id="album-comments"></div>
+                    </div>
+                </div>
             </div>
-
-            <div class="row main-container">
-                <div id="main-results" class="col-md-12"></div>
-                <div class="col-md-4">
-                    <div id="artist-profile"></div>
-                    <div id="artist-videos"></div>
-                </div>
-                <div class="col-md-8">
-                    <div id="album-list"></div>
-                    <div id="album-comments"></div>
-                </div>
-            </div>
-
-            <div class="footer">
+        </div>
+        <div class="footer">
+            <div class="container">
                 <p>by Ivan Siachoque</p>
             </div>
-
         </div>
-
 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

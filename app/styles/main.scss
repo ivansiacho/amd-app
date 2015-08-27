@@ -6,7 +6,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 body {
     background-color: #2a2a31;
     padding-bottom: 20px;
-    padding-top: 20px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -19,15 +18,12 @@ body {
 
 /* Custom page header */
 .header {
+    background-color: #2a2a31;
     border-bottom: 1px solid #e5e5e5;
-}
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    line-height: 40px;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 19px;
+    & h4 {
+        margin-top: 42px;
+    }
 }
 
 /* Custom page footer */
@@ -103,6 +99,10 @@ body {
     margin-top: -10px;
 }
 
+.app-container {
+    padding-top: 30px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
@@ -112,10 +112,6 @@ body {
     .footer {
         padding-left: 0;
         padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
     }
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
